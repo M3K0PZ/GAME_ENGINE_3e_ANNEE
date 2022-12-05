@@ -1,0 +1,316 @@
+// THE AUTOMATA in DOT FORMAT 
+
+digraph bot{
+node[shape=box, fontsize=16, color=gray];
+
+
+subgraph cluster_Philosopher{
+
+"14" [label="Philosopher", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"14" -> "13";
+"13" [label="Think", shape=circle, style=filled, fontsize=5];
+
+} // end of Philosopher
+
+
+subgraph cluster_Mine{
+
+"37" [label="Mine", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"25" [label="-1%Cell(F,E)? _%-1%Explode", shape=box, fontname=comic, fontsize=10];
+
+"36" -> "25";
+"25" -> "24";
+"30" [label="-1%True? ", shape=box, fontname=comic, fontsize=10];
+
+"36" -> "30";
+"30" -> "36";
+"37" -> "36";
+"24" [label="", shape=circle, style=filled, fontsize=5];
+
+"36" [label="Banzai", shape=circle, style=filled, fontsize=5];
+
+} // end of Mine
+
+
+subgraph cluster_Poule{
+
+"79" [label="Poule", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"50" [label="-1%Cell(F,V)? _%-1%Egg(F)", shape=box, fontname=comic, fontsize=10];
+
+"78" -> "50";
+"50" -> "49";
+"63" [label="-1%Cell(F,T)? _%-1%Move", shape=box, fontname=comic, fontsize=10];
+
+"49" -> "63";
+"63" -> "62";
+"75" [label="-1%Cell(H,V)? ", shape=box, fontname=comic, fontsize=10];
+
+"62" -> "75";
+"75" -> "78";
+"79" -> "78";
+"62" [label="Attendre", shape=circle, style=filled, fontsize=5];
+
+"78" [label="Pondre", shape=circle, style=filled, fontsize=5];
+
+"49" [label="Couver", shape=circle, style=filled, fontsize=5];
+
+} // end of Poule
+
+
+subgraph cluster_Fire{
+
+"140" [label="Fire", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"92" [label="-1%Cell(F,V)? _%-1%Move(F)", shape=box, fontname=comic, fontsize=10];
+
+"139" -> "92";
+"92" -> "91";
+"104" [label="-1%Cell(F,O)? _%-1%Explode(H)", shape=box, fontname=comic, fontsize=10];
+
+"139" -> "104";
+"104" -> "103";
+"109" [label="-1%True? ", shape=box, fontname=comic, fontsize=10];
+
+"139" -> "109";
+"109" -> "103";
+"124" [label="-1%Cell(F,O)? _%-1%Explode(H)", shape=box, fontname=comic, fontsize=10];
+
+"91" -> "124";
+"124" -> "103";
+"136" [label="-1%Cell(B,V)? _%-1%Egg(B)", shape=box, fontname=comic, fontsize=10];
+
+"91" -> "136";
+"136" -> "139";
+"140" -> "139";
+"103" [label="", shape=circle, style=filled, fontsize=5];
+
+"91" [label="Copy", shape=circle, style=filled, fontsize=5];
+
+"139" [label="Forward", shape=circle, style=filled, fontsize=5];
+
+} // end of Fire
+
+
+subgraph cluster_Egyptologue{
+
+"213" [label="Egyptologue", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"150" [label="-1%Cell(H,C)? ", shape=box, fontname=comic, fontsize=10];
+
+"212" -> "150";
+"150" -> "149";
+"162" [label="-1%Cell(F,V)? _%-1%Move(F)", shape=box, fontname=comic, fontsize=10];
+
+"212" -> "162";
+"162" -> "161";
+"174" [label="-1%Cell(L,V)? _%-1%Turn(L)", shape=box, fontname=comic, fontsize=10];
+
+"212" -> "174";
+"174" -> "212";
+"186" [label="-1%Cell(R,V)? _%-1%Turn(R)", shape=box, fontname=comic, fontsize=10];
+
+"212" -> "186";
+"186" -> "212";
+"198" [label="-1%Cell(B,V)? _%-1%Turn(B)", shape=box, fontname=comic, fontsize=10];
+
+"212" -> "198";
+"198" -> "212";
+"209" [label="-1%True? _%-1%Pop(B)", shape=box, fontname=comic, fontsize=10];
+
+"161" -> "209";
+"209" -> "212";
+"213" -> "212";
+"149" [label="", shape=circle, style=filled, fontsize=5];
+
+"212" [label="Explore", shape=circle, style=filled, fontsize=5];
+
+"161" [label="Paint", shape=circle, style=filled, fontsize=5];
+
+} // end of Egyptologue
+
+
+subgraph cluster_PopOrWizz1{
+
+"226" [label="PopOrWizz1", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"222" [label="-1%True? 49%49%Pop / 49%49%Wizz / _%-1%Power", shape=box, fontname=comic, fontsize=10];
+
+"225" -> "222";
+"222" -> "225";
+"226" -> "225";
+"225" [label="Init", shape=circle, style=filled, fontsize=5];
+
+} // end of PopOrWizz1
+
+
+subgraph cluster_PopOrWizz2{
+
+"246" [label="PopOrWizz2", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"233" [label="-1%True? _%-1%Pop", shape=box, fontname=comic, fontsize=10];
+
+"245" -> "233";
+"233" -> "232";
+"242" [label="-1%True? _%-1%Wizz", shape=box, fontname=comic, fontsize=10];
+
+"236" -> "242";
+"242" -> "232";
+"246" -> "245";
+"245" [label="State1", shape=circle, style=filled, fontsize=5];
+
+"236" [label="State2", shape=circle, style=filled, fontsize=5];
+
+"232" [label="_", shape=circle, style=filled, fontsize=5];
+
+} // end of PopOrWizz2
+
+
+subgraph cluster_Fourmi{
+
+"297" [label="Fourmi", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"259" [label="-1%Cell(F,C)? _%-1%Move(F)", shape=box, fontname=comic, fontsize=10];
+
+"296" -> "259";
+"259" -> "296";
+"271" [label="-1%Cell(R,C)? _%-1%Turn(R)", shape=box, fontname=comic, fontsize=10];
+
+"296" -> "271";
+"271" -> "296";
+"283" [label="-1%Cell(L,C)? _%-1%Turn(L)", shape=box, fontname=comic, fontsize=10];
+
+"296" -> "283";
+"283" -> "296";
+"293" [label="-1%Cell(F,V)? _%-1%Move", shape=box, fontname=comic, fontsize=10];
+
+"296" -> "293";
+"293" -> "296";
+"297" -> "296";
+"296" [label="Init", shape=circle, style=filled, fontsize=5];
+
+} // end of Fourmi
+
+
+subgraph cluster_Blocker{
+
+"320" [label="Blocker", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"308" [label="-1%Cell(F,V)? _%-1%Move", shape=box, fontname=comic, fontsize=10];
+
+"319" -> "308";
+"308" -> "319";
+"313" [label="-1%True? ", shape=box, fontname=comic, fontsize=10];
+
+"319" -> "313";
+"313" -> "312";
+"320" -> "319";
+"319" [label="Go", shape=circle, style=filled, fontsize=5];
+
+"312" [label="Block", shape=circle, style=filled, fontsize=5];
+
+} // end of Blocker
+
+
+subgraph cluster_Escape{
+
+"400" [label="Escape", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"348" [label="-1%Cell(N,V) & -1%Cell(S,V) & -1%Cell(E,V) & -1%Cell(O,V)? ", shape=box, fontname=comic, fontsize=10];
+
+"399" -> "348";
+"348" -> "399";
+"360" [label="-1%Cell(F,V)? _%-1%Move(F)", shape=box, fontname=comic, fontsize=10];
+
+"399" -> "360";
+"360" -> "399";
+"372" [label="-1%Cell(L,V)? _%-1%Turn(L)", shape=box, fontname=comic, fontsize=10];
+
+"399" -> "372";
+"372" -> "399";
+"384" [label="-1%Cell(R,V)? _%-1%Turn(R)", shape=box, fontname=comic, fontsize=10];
+
+"399" -> "384";
+"384" -> "399";
+"396" [label="-1%Cell(B,V)? _%-1%Move(B)", shape=box, fontname=comic, fontsize=10];
+
+"399" -> "396";
+"396" -> "399";
+"400" -> "399";
+"399" [label="Init", shape=circle, style=filled, fontsize=5];
+
+} // end of Escape
+
+
+subgraph cluster_Player{
+
+"539" [label="Player", shape=none, fontname=times, fontsize=12, fontcolor=blue];
+
+"411" [label="-1%Key(FU)? _%-1%Move(N)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "411";
+"411" -> "538";
+"421" [label="-1%Key(FD)? _%-1%Move(S)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "421";
+"421" -> "538";
+"431" [label="-1%Key(FL)? _%-1%Move(O)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "431";
+"431" -> "538";
+"441" [label="-1%Key(FR)? _%-1%Move(E)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "441";
+"441" -> "538";
+"449" [label="-1%Key(SPACE)? _%-1%Hit", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "449";
+"449" -> "538";
+"457" [label="-1%Key(ENTER)? _%-1%Jump", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "457";
+"457" -> "538";
+"467" [label="-1%Key(b)? _%-1%Jump(B)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "467";
+"467" -> "538";
+"477" [label="-1%Key(d)? _%-1%Move(D)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "477";
+"477" -> "538";
+"487" [label="-1%Key(e)? _%-1%Move(E)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "487";
+"487" -> "538";
+"497" [label="-1%Key(f)? _%-1%Turn(B)", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "497";
+"497" -> "538";
+"505" [label="-1%Key(p)? _%-1%Pop", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "505";
+"505" -> "538";
+"513" [label="-1%Key(w)? _%-1%Wizz", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "513";
+"513" -> "538";
+"521" [label="-1%Key(g)? _%-1%Get", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "521";
+"521" -> "538";
+"529" [label="-1%Key(t)? _%-1%Throw", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "529";
+"529" -> "538";
+"535" [label="-1%True? _%-1%Power", shape=box, fontname=comic, fontsize=10];
+
+"538" -> "535";
+"535" -> "538";
+"539" -> "538";
+"538" [label="Init", shape=circle, style=filled, fontsize=5];
+
+} // end of Player
+
+} // end of bot

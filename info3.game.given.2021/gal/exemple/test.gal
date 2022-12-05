@@ -1,0 +1,130 @@
+Joueur1(Init){
+  * (Init)
+  | Key(z) & Key(q) & !(Cell(NW,O) / Cell(NW,J)) ? Move(NW) :(Action)
+  | Key(z) & Key(d) & !(Cell(NE,O) / Cell(NE,J)) ? Move(NE) :(Action)
+  | Key(s) & Key(q) & !(Cell(SW,O) / Cell(SW,J)) ? Move(SW) :(Action)
+  | Key(s) & Key(d) & !(Cell(SE,O) / Cell(SE,J)) ? Move(SE) :(Action)
+  | Key(z) & !(Cell(N,O) / Cell(N,J)) ? Move(N) :(Action)
+  | Key(q) & !(Cell(W,O) / Cell(W,J)) ? Move(W) :(Action)
+  | Key(s) & !(Cell(S,O) / Cell(S,J)) ? Move(S) :(Action)
+  | Key(d) & !(Cell(E,O) / Cell(E,J)) ? Move(E) :(Action)
+  | Key(SPACE) ? Pop() :(Init)
+  
+  * (Action)
+  | Key(SPACE) ? Pop() :(Init)
+  | True ?  :(Init)
+}
+
+Joueur2(Init){
+  * (Init)
+  | Key(FU) & Key(FL) & !(Cell(NW,O) / Cell(NW,J)) ? Move(NW) :(Action)
+  | Key(FU) & Key(FR) & !(Cell(NE,O) / Cell(NE,J)) ? Move(NE) :(Action)
+  | Key(FD) & Key(FL) & !(Cell(SW,O) / Cell(SW,J)) ? Move(SW) :(Action)
+  | Key(FD) & Key(FR) & !(Cell(SE,O) / Cell(SE,J)) ? Move(SE) :(Action)
+  | Key(FU) & !(Cell(N,J) / Cell(N,O)) ? Move(N) :(Action)
+  | Key(FL) & !(Cell(W,J) / Cell(W,O)) ? Move(W) :(Action)
+  | Key(FD) & !(Cell(S,J) / Cell(S,O)) ? Move(S) :(Action)
+  | Key(FR) & !(Cell(E,J) / Cell(E,O)) ? Move(E) :(Action)
+  | Key(ENTER) ? Pop() :(Init)
+  
+  * (Action)
+  | Key(ENTER) ? Pop() :(Init)
+  | True ?  :(Init)
+}
+
+Ennemis(Init){
+  * (Init)
+  | True ? Pop() :(Deux)
+  * (Deux)
+  | !(Cell(F,O) / Cell(F,J)) ? Move() :(Init)
+  | !(Cell(B,O) / Cell(B,J)) ? Move(B) / Wait() :(Trois)
+  * (Trois)
+  | !(Cell(R,O) / Cell(R,J)) ? Move(R) / Wait() :(Init)
+  | True ? :(Trois)
+}
+
+EnnemisP(Init){
+  * (Init)
+  | !(Cell(F,O) / Cell(F,J)) ? 98 % Move(F) / 2 % Pop(F) :(Init)
+  | True ? 40 % Move(L) / 40 % Move(R) / Move(B) :(Init)
+}
+
+Boss(Init){
+  * (Init)
+  | !(Cell(F,O) / Cell(F,J)) ? 98 % Move(F) / 2 % Egg(F) :(Init)
+  | True ? 40 % Move(L) / 40 % Move(R) / Move(B) :(Init)
+}
+
+Fantome1(Init){
+  * (Init)
+  | Key(z) & Key(q) & !Cell(NW,O) ? Move(NW) :(Action)
+  | Key(z) & Key(d) & !Cell(NE,O) ? Move(NE) :(Action)
+  | Key(s) & Key(q) & !Cell(SW,O) ? Move(SW) :(Action)
+  | Key(s) & Key(d) & !Cell(SE,O) ? Move(SE) :(Action)
+  | Key(z) & !Cell(N,O) ? Move(N) :(Action)
+  | Key(q) & !Cell(W,O) ? Move(W) :(Action)
+  | Key(s) & !Cell(S,O) ? Move(S) :(Action)
+  | Key(d) & !Cell(E,O) ? Move(E) :(Action)
+  | Key(SPACE) ? Pop() :(Action)
+  
+  * (Action)
+  | Key(SPACE) ? Pop() :(Init)
+  | True ?  :(Init)
+}
+
+Fantome2(Init){
+  * (Init)
+  | Key(FU) & Key(FR) & !Cell(NE,O) ? Move(NE) :(Action)
+  | Key(FU) & Key(FL) & !Cell(NW,O) ? Move(NW) :(Action)
+  | Key(FD) & Key(FR) & !Cell(SE,O) ? Move(SE) :(Action)
+  | Key(FD) & Key(FL) & !Cell(SW,O) ? Move(SW) :(Action)
+  | Key(FU) & !Cell(N,O) ? Move(N) :(Action)
+  | Key(FL) & !Cell(W,O) ? Move(W) :(Action)
+  | Key(FD) & !Cell(S,O) ? Move(S) :(Action)
+  | Key(FR) & !Cell(E,O) ? Move(E) :(Action)
+  | Key(ENTER) ? Pop() :(Action)
+  
+  * (Action)
+  | Key(ENTER) ? Pop() :(Init)
+  | True ?  :(Init)
+  
+}
+
+Balle(Init){
+ * (Init)
+  | !(Cell(F,O) / Cell(F,J)) ? Move() :(Init)
+  | True ? :()
+ * ()
+}
+
+Coup(Init){
+ * (Init)
+  | !(Cell(F,O) / Cell(F,J)) ? Move() :(Init)
+  | True ? :()
+ * ()
+}
+
+Porte(Init){
+  * (Init)
+  | GotStuff ? Pop(N) :(Open)
+  | True ? :(Init)
+
+  * (Open)
+  | True ? :(Open)
+}
+
+Portail(Init){
+  * (Init)
+  | True ? :(Init)
+  
+}
+
+Static(Init){
+ * (Init)
+  | True ? Wait :(Init)
+}
+
+Static(Init){
+ * (Init)
+  | True ? Wait :(Init)
+}
