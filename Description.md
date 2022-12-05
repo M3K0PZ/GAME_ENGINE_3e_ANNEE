@@ -1,6 +1,9 @@
 ﻿Contrat Projet PLA- Groupe 6 BOMPARD-GUERIN-JOUVE-KHELIFI-MACHENAUD-RIFFARD
+ 
+ VIDEO EXPLICATIVE : https://www.youtube.com/watch?v=udqhLzGl80I
+ POUR LANCER LE JEU : EXECUTER menu dans info3.game.given.2021/game/Menu/Menu.java
 
-*Projet :* [nom du jeu] **Description :**
+*Projet :* [RANDOM DUALITY] **Description :**
 
 Le jeu est un Rogue-Like, c'est-à-dire un jeu mélangeant donjons et monstres. Il possède un niveau infini d’étages, de plus en plus difficiles, et possédant chacun un niveau aléatoire de salles (avec un intervalle, afin d’éviter d’avoir un nombre de salle trop faible, tout en conservant un niveau de difficulté correspondant à l’étage).
 
